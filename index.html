@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Operation: Birthday
+
+</title>
+
+<link rel="stylesheet"
+href="style.css">
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Bebas+Neue&display=swap"
+ rel="stylesheet">
+
+</head>
+
+<body>
+
+
+
+<!-- ========================= -->
+
+<!-- BACKGROUND -->
+
+<!-- ========================= -->
+
+<div id="backgroundGlow"></div>
+
+<div id="particles"></div>
+
+
+
+<!-- ========================= -->
+
+<!-- AUDIO -->
+
+<!-- ========================= -->
+
+<audio id="introMusic">
+
+<source src="assets/music/intro.mp3">
+
+</audio>
+
+<audio id="missionMusic" loop>
+
+<source src="assets/music/mission.mp3">
+
+</audio>
+
+<audio id="clickSound">
+
+<source src="assets/music/click.mp3">
+
+</audio>
+
+<audio id="hoverSound">
+
+<source src="assets/music/hover.mp3">
+
+</audio>
+
+<audio id="successSound">
+
+<source src="assets/music/success.mp3">
+
+</audio>
+
+<audio id="errorSound">
+
+<source src="assets/music/error.mp3">
+
+</audio>
+
+<audio id="vaultSound">
+
+<source src="assets/music/vault.mp3">
+
+</audio>
+
+
+
+<div class="container">
+  <!-- ========================= -->
+
+<!-- START SCREEN -->
+
+<!-- ========================= -->
+
+<section
+
+id="startScreen"
+
+class="screen active"
+
+>
+
+<h1>
+
+OPERATION
+
+<span>
+
+BIRTHDAY
+
+</span>
+
+</h1>
+
+<div class="agents">
+
+<div class="centerText">
+
+<h3>MISSION BRIEF</h3>
+
+<p>Complete all 4 missions.</p>
+
+<p>Each mission unlocks one classified number.</p>
+
+<p>Collect all numbers to unlock the Birthday Vault.</p>
+
+</div>
+
+<img src="assets/images/phoenix.png" class="agent right">
+
+</div>
+
+<button
+
+id="beginBtn"
+
+>
+
+BEGIN OPERATION
+
+</button>
+
+</section>
+<!-- ========================= -->
+
+<!-- RIOT INTRO -->
+
+<!-- ========================= -->
+
+<section
+
+id="introScreen"
+
+class="screen hidden"
+
+>
+
+<img
+
+src="assets/images/logo.png"
+
+class="riotLogo"
+
+>
+
+<p
+
+id="bootText"
+
+>
+
+Initializing Security Protocol...
+
+</p>
+
+<div class="loadingBar">
+
+<div
+
+id="introLoading"
+
+>
+
+</div>
+
+</div>
+
+<img src="assets/images/omen.png" class="screenAgent rightAgent">
+</section>
+<!-- ========================= -->
+
+<!-- MISSION HUD -->
+
+<!-- ========================= -->
+
+<div
+
+id="hud"
+
+class="hidden"
+
+>
+
+<div>
+
+AGENT
+
+<br>
+
+<b>
+
+DODY
+
+</b>
+
+</div>
+
+<div>
+
+MISSION
+
+<br>
+
+<span id="missionCounter">
+
+1 / 4
+
+</span>
+
+</div>
+
+<div>
+
+FRAGMENTS
+
+<br>
+
+<span id="fragmentBar">
+
+_ _ _ _
+
+</span>
+
+</div>
+
+</div>
+<!-- ================================= -->
+<!-- MISSION 01 -->
+<!-- ================================= -->
+
+<section
+id="mission1"
+class="screen hidden">
+
+<div class="missionHeader">
+
+<p class="missionNumber">
+
+MISSION 01
+
+</p>
+
+<h2>
+
+FOCUS TEST
+
+</h2>
+
+</div>
+
+
+<div class="objectiveBox">
+
+<h3>
+
+OBJECTIVE UPDATED
+
+</h3>
+
+<p>
+
+You already know the answer.
+
+Stay focused.
+
+Only one identity is correct.
+
+</p>
+
+</div>
+
+
+<div class="questionBox">
+
+<h2>
+
+WHO IS RANOMA'S BABY BOY?
+
+</h2>
+
+</div>
+
+
+
+<div class="answers">
+
+<button
+class="answerBtn"
+onclick="mission1Answer('Mohamed')">
+
+Mohamed
+
+</button>
+
+
+<button
+class="answerBtn"
+onclick="mission1Answer('Tamer')">
+
+Tamer
+
+</button>
+
+
+<button
+class="answerBtn"
+onclick="mission1Answer('Dody')">
+
+Dody
+
+</button>
+
+</div>
+
+
+
+<p
+id="mission1Result">
+
+</p>
+
+
+
+<div
+id="fragmentReward1"
+class="reward hidden">
+
+<h2>
+
+MISSION COMPLETE
+
+</h2>
+
+<h3>
+
+Fragment Collected
+
+</h3>
+
+<h1>
+
+0
+
+</h1>
+
+<button
+onclick="goMission2()">
+
+NEXT MISSION
+
+</button>
+
+</div>
+
+</section>
+<!-- ========================= -->
+<!-- MISSION 2 -->
+<!-- ========================= -->
+
+<section id="mission2" class="screen hidden">
+
+<div class="missionHeader">
+
+<div class="missionNumber">
+MISSION 02
+</div>
+
+<h2>RESTORE THE TIMELINE</h2>
+
+</div>
+
+<div class="objectiveBox">
+
+<h3>Objective</h3>
+
+<p>
+Arrange the memories from the oldest to the newest.
+Only the correct timeline will unlock the next fragment.
+</p>
+
+</div>
+
+<div id="timeline">
+
+<div class="memory" data-order="3">
+<img src="assets/images/memory3.jpg">
+</div>
+
+<div class="memory" data-order="1">
+<img src="assets/images/memory1.jpg">
+</div>
+
+<div class="memory" data-order="4">
+<img src="assets/images/memory4.jpg">
+</div>
+
+<div class="memory" data-order="2">
+<img src="assets/images/memory2.jpg">
+</div>
+</div>
+
+<button id="checkTimeline">
+
+CHECK ORDER
+
+</button>
+
+<p id="timelineResult"></p>
+
+</section>
+<!-- ================================= -->
+<!-- MISSION 03 -->
+<!-- ================================= -->
+
+<section
+id="mission3"
+class="screen hidden">
+
+<div class="missionHeader">
+
+<p class="missionNumber">
+
+MISSION 03
+
+</p>
+
+<h2>
+
+MEMORY RECONSTRUCTION
+
+</h2>
+
+</div>
+
+<div class="objectiveBox">
+
+<h3>
+
+OBJECTIVE UPDATED
+
+</h3>
+
+<p>
+
+Rebuild the memory.
+
+Every piece belongs in the right place.
+
+</p>
+
+</div>
+
+<div id="puzzleBoard">
+
+<div class="puzzleGrid">
+
+<div class="piece" data-id="0"></div>
+<div class="piece" data-id="1"></div>
+<div class="piece" data-id="2"></div>
+
+<div class="piece" data-id="3"></div>
+<div class="piece" data-id="4"></div>
+<div class="piece" data-id="5"></div>
+
+<div class="piece" data-id="6"></div>
+<div class="piece" data-id="7"></div>
+<div class="piece" data-id="8"></div>
+
+</div>
+
+</div>
+
+<p id="puzzleResult"></p>
+
+<div
+id="fragmentReward3"
+class="reward hidden">
+
+<h2>
+
+MISSION COMPLETE
+
+</h2>
+
+<h3>
+
+Fragment Collected
+
+</h3>
+
+<h1>
+
+0
+
+</h1>
+
+<button
+onclick="goMission4()">
+
+NEXT MISSION
+
+</button>
+
+</div>
+
+</section>
+<!-- ================================= -->
+<!-- MISSION 04 -->
+<!-- ================================= -->
+
+<section
+id="mission4"
+class="screen hidden">
+
+<div class="missionHeader">
+
+<p class="missionNumber">
+
+MISSION 04
+
+</p>
+
+<h2>
+
+FINAL QUESTION
+
+</h2>
+
+</div>
+
+<div class="objectiveBox">
+
+<h3>
+
+OBJECTIVE UPDATED
+
+</h3>
+
+<p>
+
+One final answer stands between you
+
+and the Birthday Vault.
+
+</p>
+
+</div>
+
+<h2>
+
+In which month
+
+did our story begin?
+
+</h2>
+<div class="answers">
+
+<button class="answerBtn"
+onclick="checkMonth('August')">
+
+August
+
+</button>
+
+<button class="answerBtn"
+onclick="checkMonth('September')">
+
+September
+
+</button>
+
+<button class="answerBtn"
+onclick="checkMonth('July')">
+
+July
+
+</button>
+
+<button class="answerBtn"
+onclick="checkMonth('October')">
+
+October
+
+</button>
+
+</div>
+
+<p id="monthResult"></p>
+
+<div
+id="fragmentReward4"
+class="reward hidden">
+
+<h2>
+
+MISSION COMPLETE
+
+</h2>
+
+<h3>
+
+Fragment Collected
+
+</h3>
+
+<h1>
+
+9
+
+</h1>
+
+<button
+onclick="openVault()">
+
+OPEN VAULT
+
+</button>
+
+</div>
+
+</section>
+<!-- ================================= -->
+<!-- BIRTHDAY VAULT -->
+<!-- ================================= -->
+
+<section
+id="vaultScreen"
+class="screen hidden">
+
+<h2>
+
+BIRTHDAY VAULT
+
+</h2>
+
+<p>
+
+Enter the code you collected.
+
+</p>
+
+<input
+id="vaultCode"
+type="password"
+maxlength="4"
+placeholder="----"
+autocomplete="off">
+
+<button
+
+onclick="unlockVault()">
+
+UNLOCK
+
+</button>
+
+<p id="vaultResult"></p>
+<img src="assets/images/jett.png" class="screenAgent leftAgent">
+</section>
+<!-- ================================= -->
+<!-- GIFT -->
+<!-- ================================= -->
+
+<section
+id="giftScreen"
+class="screen hidden">
+
+<img
+
+src="assets/images/gift.jpg"
+
+id="giftImage">
+
+<div id="letter">
+
+<p id="typingText"></p>
+
+</div>
+<img src="assets/images/cypher.png" class="screenAgent rightAgent">
+
+</section>
+<!-- ================================= -->
+<!-- ENDING -->
+<!-- ================================= -->
+
+<section
+id="endingScreen"
+class="screen hidden">
+
+<video
+
+id="endingVideo"
+
+controls>
+
+<source
+
+src="assets/video/ending.mp4">
+
+</video>
+
+<h1>
+
+MISSION COMPLETE
+
+</h1>
+
+<h2>
+
+HAPPY BIRTHDAY
+
+AGENT DODY
+
+</h2>
+
+</section>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
